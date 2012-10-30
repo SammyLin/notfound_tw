@@ -1,20 +1,22 @@
 <h1>失蹤兒童</h1>
-<ul>
-<% @img.each_with_index do |img, index| %>
-  <li><%= image_tag img['src'] %>
-    <ul>
-      <% @items[index].map do |item| %>
-      <li><%= item %></li>
-      <% end %>
-    </ul>
-  </li>
-
-<% end %>
-</ul>
-<ul>
+<ul class="thumbnails">
   <% @childs.each do |child| %>
-  <li><ul>
-    <li><%= child %></li>
-  </ul></li>
+  <li class="span4">
+    <div class="thumbnail">
+      <%= image_tag child['img'] %>
+      <h3><%= child['name'] %></h3>
+      <ul>
+        <li>性別：<%= child['sex'] %></li>
+        <li>現在年齡：<%= child['ago'] %></li>
+        <li>失蹤年齡：<%= child['lost_ago'] %></li>
+        <li>失蹤日期：<%= child['lost_time'] %></li>
+        <li>特徵：<%= child['feature'] %></li>
+        <li>失蹤地區：<%= child['lost_area'] %></li>
+        <li>失蹤地點：<%= child['lost_place'] %></li>
+        <li>失蹤原因：<%= child['lost_reasons'] %></li>
+      </ul>
+      <p></p>
+    </div>
+  </li>
   <% end %>
 </ul>

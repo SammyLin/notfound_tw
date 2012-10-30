@@ -14,17 +14,17 @@ class HomeController < ApplicationController
           @childs << { 'id' => i, 'img' => img['src'] }
           @img << img
           item = []
-          doc.css('table[width="100%"]')[0].search('tr>td').each{|row| item << "#{row.content.strip}," }
-          @items << item.split(',')
-          @childs.select{|item|item["id"] == i}[0]['name'] = @items[x-1][0][1]
-          @childs.select{|item|item["id"] == i}[0]['sex'] = @items[x-1][0][3]
-          @childs.select{|item|item["id"] == i}[0]['ago'] = @items[x-1][0][5]
-          @childs.select{|item|item["id"] == i}[0]['lost_ago'] = @items[x-1][0][7]
-          @childs.select{|item|item["id"] == i}[0]['lost_time'] = @items[x-1][0][9]
-          @childs.select{|item|item["id"] == i}[0]['feature'] = @items[x-1][0][11]
-          @childs.select{|item|item["id"] == i}[0]['lost_area'] = @items[x-1][0][13]
-          @childs.select{|item|item["id"] == i}[0]['lost_place'] = @items[x-1][0][15]
-          @childs.select{|item|item["id"] == i}[0]['lost_reasons'] = @items[x-1][0][17]
+          doc.css('table[width="100%"]')[0].search('tr>td').each{|row| item << "#{row.content.strip}" }
+          @items << item
+          @childs.select{|item|item["id"] == i}[0]['name'] = @items[x-1][1]
+          @childs.select{|item|item["id"] == i}[0]['sex'] = @items[x-1][3]
+          @childs.select{|item|item["id"] == i}[0]['ago'] = @items[x-1][5]
+          @childs.select{|item|item["id"] == i}[0]['lost_ago'] = @items[x-1][7]
+          @childs.select{|item|item["id"] == i}[0]['lost_time'] = @items[x-1][9]
+          @childs.select{|item|item["id"] == i}[0]['feature'] = @items[x-1][11]
+          @childs.select{|item|item["id"] == i}[0]['lost_area'] = @items[x-1][13]
+          @childs.select{|item|item["id"] == i}[0]['lost_place'] = @items[x-1][15]
+          @childs.select{|item|item["id"] == i}[0]['lost_reasons'] = @items[x-1][17]
           x= x+1
         end
       end
